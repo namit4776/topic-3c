@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Smart Car Control Panel</title>
+  </head>
+  <body>
+    <h1>Smart Car Control Panel</h1>
+    <form method="post">
+      <label for="username">Username:</label>
+      <input type="text" name="username" id="username"><br>
+      <label for="password">Password:</label>
+      <input type="password" name="password" id="password"><br>
+      <input type="submit" value="Login">
+    </form>
+    <?php
+      // Check if the login form was submitted
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Check if the username and password are correct
+        $username = $_POST["username"];
+        $password = $_POST["password"];
+        if ($username == "user1" && $password == "password1") {
+          // Display information for user1
+          echo "<h2>Welcome user1!</h2>";
+          echo "<p>Your smart car has a range of 200 miles and is currently charged to 80%.</p>";
+        } else if ($username == "user2" && $password == "password2") {
+          // Display information for user2
+          echo "<h2>Welcome user2!</h2>";
+          echo "<p>Your smart car has a range of 150 miles and is currently charged to 60%.</p>";
+        } else {
+          // Display an error message for incorrect login credentials
+          echo "<p>Incorrect username or password. Please try again.</p>";
+        }
+      }
+    ?>
+  </body>
+</html>
